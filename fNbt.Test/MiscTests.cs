@@ -173,6 +173,13 @@ namespace fNbt.Test {
 
 
         [Test]
+        public void NbtTagNameTest() {
+            Assert.AreEqual("TAG_End", NbtTag.GetCanonicalTagName(NbtTagType.End));
+            Assert.IsNull(NbtTag.GetCanonicalTagName((NbtTagType)255));
+        }
+
+
+        [Test]
         public void PathTest() {
             // test NbtTag.Path property
             var testComp = new NbtCompound {
