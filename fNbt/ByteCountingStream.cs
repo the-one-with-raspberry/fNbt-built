@@ -1,10 +1,8 @@
-﻿using System.Diagnostics;
-using System.IO;
-using JetBrains.Annotations;
+﻿using System.IO;
 
 namespace fNbt {
     // Class used to count bytes read-from/written-to non-seekable streams.
-    internal class ByteCountingStream : Stream {
+    internal sealed class ByteCountingStream : Stream {
         readonly Stream baseStream;
 
         // These are necessary to avoid counting bytes twice if ReadByte/WriteByte call Read/Write internally.
@@ -16,8 +14,8 @@ namespace fNbt {
         bool writingManyBytes;
 
 
-        public ByteCountingStream([NotNull] Stream stream) {
-            Debug.Assert(stream != null);
+        public ByteCountingStream(Stream stream) {
+            NullableSupport.Assert(stream != null);
             baseStream = stream;
         }
 
@@ -94,5 +92,11 @@ namespace fNbt {
 
         public long BytesRead { get; private set; }
         public long BytesWritten { get; private set; }
+
+
+        protected override void Dispose(bool disposing) {
+            base.Dispose(disposing);
+            baseStream.Dispose();
+        }
     }
 }

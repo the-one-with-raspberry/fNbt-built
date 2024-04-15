@@ -1,6 +1,6 @@
 ﻿using System;
+using System.Globalization;
 using System.Text;
-using JetBrains.Annotations;
 
 namespace fNbt {
     /// <summary> A tag containing a single byte. </summary>
@@ -26,14 +26,14 @@ namespace fNbt {
 
         /// <summary> Creates an NbtByte tag with the given name and the default value of 0. </summary>
         /// <param name="tagName"> Name to assign to this tag. May be <c>null</c>. </param>
-        public NbtByte([CanBeNull] string tagName)
+        public NbtByte(string? tagName)
             : this(tagName, 0) { }
 
 
         /// <summary> Creates an NbtByte tag with the given name and value. </summary>
         /// <param name="tagName"> Name to assign to this tag. May be <c>null</c>. </param>
         /// <param name="value"> Value to assign to this tag. </param>
-        public NbtByte([CanBeNull] string tagName, byte value) {
+        public NbtByte(string? tagName, byte value) {
             name = tagName;
             Value = value;
         }
@@ -42,7 +42,7 @@ namespace fNbt {
         /// <summary> Creates a copy of given NbtByte tag. </summary>
         /// <param name="other"> Tag to copy. May not be <c>null</c>. </param>
         /// <exception cref="ArgumentNullException"> <paramref name="other"/> is <c>null</c>. </exception>
-        public NbtByte([NotNull] NbtByte other) {
+        public NbtByte(NbtByte other) {
             if (other == null) throw new ArgumentNullException(nameof(other));
             name = other.name;
             Value = other.Value;
@@ -89,7 +89,7 @@ namespace fNbt {
             }
             sb.Append("TAG_Byte");
             if (!String.IsNullOrEmpty(Name)) {
-                sb.AppendFormat("(\"{0}\")", Name);
+                sb.AppendFormat(CultureInfo.InvariantCulture, "(\"{0}\")", Name);
             }
             sb.Append(": ");
             sb.Append(Value);

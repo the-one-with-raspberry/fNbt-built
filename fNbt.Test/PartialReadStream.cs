@@ -1,17 +1,16 @@
 ﻿using System;
 using System.IO;
-using JetBrains.Annotations;
 
 namespace fNbt.Test {
     class PartialReadStream : Stream {
         readonly Stream baseStream;
         readonly int increment;
 
-        public PartialReadStream([NotNull] Stream baseStream)
+        public PartialReadStream(Stream baseStream)
             : this(baseStream, 1) { }
 
 
-        public PartialReadStream([NotNull] Stream baseStream, int increment) {
+        public PartialReadStream(Stream baseStream, int increment) {
             if (baseStream == null) throw new ArgumentNullException(nameof(baseStream));
             this.baseStream = baseStream;
             this.increment = increment;

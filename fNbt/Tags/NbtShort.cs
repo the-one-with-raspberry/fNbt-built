@@ -1,6 +1,6 @@
 ﻿using System;
+using System.Globalization;
 using System.Text;
-using JetBrains.Annotations;
 
 namespace fNbt {
     /// <summary> A tag containing a single signed 16-bit integer. </summary>
@@ -26,14 +26,14 @@ namespace fNbt {
 
         /// <summary> Creates an NbtShort tag with the given name and the default value of 0. </summary>
         /// <param name="tagName"> Name to assign to this tag. May be <c>null</c>. </param>
-        public NbtShort([CanBeNull] string tagName)
+        public NbtShort(string? tagName)
             : this(tagName, 0) { }
 
 
         /// <summary> Creates an NbtShort tag with the given name and value. </summary>
         /// <param name="tagName"> Name to assign to this tag. May be <c>null</c>. </param>
         /// <param name="value"> Value to assign to this tag. </param>
-        public NbtShort([CanBeNull] string tagName, short value) {
+        public NbtShort(string? tagName, short value) {
             name = tagName;
             Value = value;
         }
@@ -42,7 +42,7 @@ namespace fNbt {
         /// <summary> Creates a copy of given NbtShort tag. </summary>
         /// <param name="other"> Tag to copy. May not be <c>null</c>. </param>
         /// <exception cref="ArgumentNullException"> <paramref name="other"/> is <c>null</c>. </exception>
-        public NbtShort([NotNull] NbtShort other) {
+        public NbtShort(NbtShort other) {
             if (other == null) throw new ArgumentNullException(nameof(other));
             name = other.name;
             Value = other.Value;
@@ -93,7 +93,7 @@ namespace fNbt {
             }
             sb.Append("TAG_Short");
             if (!String.IsNullOrEmpty(Name)) {
-                sb.AppendFormat("(\"{0}\")", Name);
+                sb.AppendFormat(CultureInfo.InvariantCulture, "(\"{0}\")", Name);
             }
             sb.Append(": ");
             sb.Append(Value);

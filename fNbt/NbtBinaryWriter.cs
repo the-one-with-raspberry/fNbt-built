@@ -1,7 +1,6 @@
 using System;
 using System.IO;
 using System.Text;
-using JetBrains.Annotations;
 
 namespace fNbt {
     /// <summary> BinaryWriter wrapper that writes NBT primitives to a stream,
@@ -38,7 +37,7 @@ namespace fNbt {
         readonly bool swapNeeded;
 
 
-        public NbtBinaryWriter([NotNull] Stream input, bool bigEndian) {
+        public NbtBinaryWriter(Stream input, bool bigEndian) {
             if (input == null) throw new ArgumentNullException(nameof(input));
             if (!input.CanWrite) throw new ArgumentException("Given stream must be writable", nameof(input));
             stream = input;
@@ -161,7 +160,7 @@ namespace fNbt {
 
 
         // Based on BinaryWriter.Write(String)
-        public void Write([NotNull] string value) {
+        public void Write(string value) {
             if (value == null) {
                 throw new ArgumentNullException(nameof(value));
             }

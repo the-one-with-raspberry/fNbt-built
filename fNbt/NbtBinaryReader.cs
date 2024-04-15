@@ -2,7 +2,6 @@ using System;
 using System.Diagnostics;
 using System.IO;
 using System.Text;
-using JetBrains.Annotations;
 
 namespace fNbt {
     /// <summary> BinaryReader wrapper that takes care of reading primitives from an NBT stream,
@@ -10,13 +9,13 @@ namespace fNbt {
     internal sealed class NbtBinaryReader : BinaryReader {
         readonly byte[] buffer = new byte[sizeof(double)];
 
-        byte[] seekBuffer;
+        byte[]? seekBuffer;
         const int SeekBufferSize = 8 * 1024;
         readonly bool swapNeeded;
         readonly byte[] stringConversionBuffer = new byte[64];
 
 
-        public NbtBinaryReader([NotNull] Stream input, bool bigEndian)
+        public NbtBinaryReader(Stream input, bool bigEndian)
             : base(input) {
             swapNeeded = (BitConverter.IsLittleEndian == bigEndian);
         }
@@ -176,7 +175,6 @@ namespace fNbt {
         }
 
 
-        [CanBeNull]
-        public TagSelector Selector { get; set; }
+        public TagSelector? Selector { get; set; }
     }
 }

@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("github.com/mstefarov/fNbt")]
 [assembly: AssemblyProduct("fNbt")]
-[assembly: AssemblyCopyright("2012-2021 Matvei Stefarov")]
+[assembly: AssemblyCopyright("2012-2024 Matvei Stefarov")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

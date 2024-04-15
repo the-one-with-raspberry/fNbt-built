@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using System.IO;
 using System.IO.Compression;
-using JetBrains.Annotations;
 
 namespace fNbt {
     /// <summary> DeflateStream wrapper that calculates Adler32 checksum of the written data,
@@ -17,7 +16,7 @@ namespace fNbt {
         }
 
 
-        void UpdateChecksum([NotNull] IList<byte> data, int offset, int length) {
+        void UpdateChecksum(IList<byte> data, int offset, int length) {
             for (int counter = 0; counter < length; ++counter) {
                 adler32A = (adler32A + (data[offset + counter])) % ChecksumModulus;
                 adler32B = (adler32B + adler32A) % ChecksumModulus;
@@ -25,7 +24,7 @@ namespace fNbt {
         }
 
 
-        public ZLibStream([NotNull] Stream stream, CompressionMode mode, bool leaveOpen)
+        public ZLibStream(Stream stream, CompressionMode mode, bool leaveOpen)
             : base(stream, mode, leaveOpen) { }
 
 
