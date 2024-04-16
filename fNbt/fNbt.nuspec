@@ -11,7 +11,7 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
     <releaseNotes>Bugfixes and performance improvements.</releaseNotes>
-    <copyright>Copyright 2012-2018 Matvei Stefarov</copyright>
+    <copyright>Copyright 2012-2024 Matvei Stefarov</copyright>
     <tags>nbt serialization</tags>
   </metadata>
 </package>

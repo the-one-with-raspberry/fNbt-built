@@ -8,9 +8,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("fNbt.Test")]
 [assembly: AssemblyDescription("NUnit tests for fNbt library.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("github.com/fragmer/fNbt")]
+[assembly: AssemblyCompany("github.com/mstefarov/fNbt")]
 [assembly: AssemblyProduct("fNbt.Test")]
-[assembly: AssemblyCopyright("2012-2018 Matvei Stefarov")]
+[assembly: AssemblyCopyright("2012-2024 Matvei Stefarov")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

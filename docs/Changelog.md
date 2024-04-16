@@ -1,3 +1,10 @@
+## 1.0.0 (fNbt)
+- Library now targets .NET Standard 2.0 instead of .NET Framework, which
+    allows fNbt to be used in more types of projects (e.g. .NET 8 or UWP).
+- Support TAG_Long_Array.
+- Fix some edge-cases related to reading corrupted NBT files.
+- Switch from JetBrains' annotations to .NET's built-in annotations.
+
 ## 0.6.4 (fNbt)
 - Fixed a case where NbtBinaryReader.ReadString read too many bytes (#26).
 - Fixed NbtList.Contains(null) throwing exception instead of returning false.
